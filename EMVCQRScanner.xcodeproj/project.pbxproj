@@ -12,6 +12,11 @@
 		A413F89F20FDD66100BE9892 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A413F89D20FDD66100BE9892 /* Main.storyboard */; };
 		A413F8A120FDD66300BE9892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A413F8A020FDD66300BE9892 /* Assets.xcassets */; };
 		A413F8A420FDD66300BE9892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A413F8A220FDD66300BE9892 /* LaunchScreen.storyboard */; };
+		A413F8AC20FDD73C00BE9892 /* EVMCoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8AB20FDD73C00BE9892 /* EVMCoHelper.swift */; };
+		A413F8AE20FDDDBC00BE9892 /* TemplateClassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8AD20FDDDBC00BE9892 /* TemplateClassData.swift */; };
+		A413F8B120FDDE6900BE9892 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */; };
+		A413F8B320FDDF1400BE9892 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */; };
+		A413F8B520FDE1FE00BE9892 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B420FDE1FE00BE9892 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		A413F8A020FDD66300BE9892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A413F8A320FDD66300BE9892 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A413F8A520FDD66300BE9892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A413F8AB20FDD73C00BE9892 /* EVMCoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVMCoHelper.swift; sourceTree = "<group>"; };
+		A413F8AD20FDDDBC00BE9892 /* TemplateClassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateClassData.swift; sourceTree = "<group>"; };
+		A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		A413F8B420FDE1FE00BE9892 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,35 @@
 		A413F89820FDD66100BE9892 /* EMVCQRScanner */ = {
 			isa = PBXGroup;
 			children = (
+				A413F8B620FDFC9C00BE9892 /* ViewController */,
 				A413F89920FDD66100BE9892 /* AppDelegate.swift */,
-				A413F89B20FDD66100BE9892 /* ViewController.swift */,
 				A413F89D20FDD66100BE9892 /* Main.storyboard */,
 				A413F8A020FDD66300BE9892 /* Assets.xcassets */,
 				A413F8A220FDD66300BE9892 /* LaunchScreen.storyboard */,
 				A413F8A520FDD66300BE9892 /* Info.plist */,
+				A413F8AF20FDDE2A00BE9892 /* Models */,
 			);
 			path = EMVCQRScanner;
+			sourceTree = "<group>";
+		};
+		A413F8AF20FDDE2A00BE9892 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A413F8AB20FDD73C00BE9892 /* EVMCoHelper.swift */,
+				A413F8AD20FDDDBC00BE9892 /* TemplateClassData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A413F8B620FDFC9C00BE9892 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */,
+				A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */,
+				A413F8B420FDE1FE00BE9892 /* TableViewController.swift */,
+				A413F89B20FDD66100BE9892 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +167,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A413F89C20FDD66100BE9892 /* ViewController.swift in Sources */,
+				A413F8B320FDDF1400BE9892 /* ScannerViewController.swift in Sources */,
 				A413F89A20FDD66100BE9892 /* AppDelegate.swift in Sources */,
+				A413F8AE20FDDDBC00BE9892 /* TemplateClassData.swift in Sources */,
+				A413F8B520FDE1FE00BE9892 /* TableViewController.swift in Sources */,
+				A413F8B120FDDE6900BE9892 /* DescriptionViewController.swift in Sources */,
+				A413F8AC20FDD73C00BE9892 /* EVMCoHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D46YYHA8A9;
 				INFOPLIST_FILE = EMVCQRScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D46YYHA8A9;
 				INFOPLIST_FILE = EMVCQRScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
