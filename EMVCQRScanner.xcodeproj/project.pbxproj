@@ -17,6 +17,8 @@
 		A413F8B120FDDE6900BE9892 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */; };
 		A413F8B320FDDF1400BE9892 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */; };
 		A413F8B520FDE1FE00BE9892 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B420FDE1FE00BE9892 /* TableViewController.swift */; };
+		A46FF5E920FF229600C84FBE /* MasterpassQRCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */; };
+		A46FF5EA20FF229600C84FBE /* MasterpassQRCoreSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A48513F520FF108D0078F5D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48513F420FF108D0078F5D2 /* TableViewDataSource.swift */; };
 		A48513FA20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */; };
 		A48513FB20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -30,6 +32,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A46FF5EA20FF229600C84FBE /* MasterpassQRCoreSDK.framework in Embed Frameworks */,
 				A48513FB20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -50,6 +53,7 @@
 		A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		A413F8B420FDE1FE00BE9892 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MasterpassQRCoreSDK.framework; sourceTree = "<group>"; };
 		A48513F420FF108D0078F5D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		A48513F720FF15130078F5D2 /* MasterpassQRScanSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MasterpassQRScanSDK.framework; path = "../../../Downloads/masterpassqrscansdk-framework-ios/Frameworks/MasterpassQRScanSDK.framework"; sourceTree = "<group>"; };
 		A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MasterpassQRScanSDK.framework; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46FF5E920FF229600C84FBE /* MasterpassQRCoreSDK.framework in Frameworks */,
 				A48513FA20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +76,7 @@
 		A413F88D20FDD66000BE9892 = {
 			isa = PBXGroup;
 			children = (
+				A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */,
 				A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */,
 				A413F89820FDD66100BE9892 /* EMVCQRScanner */,
 				A413F89720FDD66100BE9892 /* Products */,
@@ -142,6 +148,7 @@
 				A413F89420FDD66100BE9892 /* Resources */,
 				A48513FC20FF154B0078F5D2 /* Embed Frameworks */,
 				A48513FD20FF15620078F5D2 /* MasterpassQRScanner */,
+				A46FF5E720FF226400C84FBE /* MasterpassQRCore */,
 			);
 			buildRules = (
 			);
@@ -199,6 +206,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A46FF5E720FF226400C84FBE /* MasterpassQRCore */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = MasterpassQRCore;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/MasterpassQRCoreSDK.framework/strip-frameworks.sh\"";
+		};
 		A48513FD20FF15620078F5D2 /* MasterpassQRScanner */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
