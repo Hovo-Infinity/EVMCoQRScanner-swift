@@ -74,6 +74,22 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     captureSession?.stopRunning()
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
                         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
+                        let tableDataSource = TableViewDataSource()
+                        tableDataSource.numberOfSections = 1
+                        tableDataSource.numberOfItemsInSection = { _ in
+                            return EVMCoHelper.sharedInstance().objects.count
+                        }
+                        tableDataSource.nameForIndexPath = { indexPath in
+                            let index = indexPath.row
+                            let obj = EVMCoHelper.sharedInstance().objects[index]
+                            return (obj?.name)!
+                        }
+                        tableDataSource.descriptionForIndexPath = { indexPath in
+                            let index = indexPath.row
+                            let obj = EVMCoHelper.sharedInstance().objects[index]
+                            return obj?.debugDescription
+                        }
+                        vc?.tableDataSource = tableDataSource
                         if let aVc = vc {
                             self.show(aVc, sender: nil)
                         }

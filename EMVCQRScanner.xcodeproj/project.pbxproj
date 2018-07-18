@@ -17,7 +17,25 @@
 		A413F8B120FDDE6900BE9892 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */; };
 		A413F8B320FDDF1400BE9892 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */; };
 		A413F8B520FDE1FE00BE9892 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B420FDE1FE00BE9892 /* TableViewController.swift */; };
+		A48513F520FF108D0078F5D2 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48513F420FF108D0078F5D2 /* TableViewDataSource.swift */; };
+		A48513FA20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */; };
+		A48513FB20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A48513FF20FF16310078F5D2 /* MPQRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48513FE20FF16310078F5D2 /* MPQRScanViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A48513FC20FF154B0078F5D2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A48513FB20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A413F89620FDD66100BE9892 /* EMVCQRScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMVCQRScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +50,10 @@
 		A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		A413F8B420FDE1FE00BE9892 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A48513F420FF108D0078F5D2 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		A48513F720FF15130078F5D2 /* MasterpassQRScanSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MasterpassQRScanSDK.framework; path = "../../../Downloads/masterpassqrscansdk-framework-ios/Frameworks/MasterpassQRScanSDK.framework"; sourceTree = "<group>"; };
+		A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MasterpassQRScanSDK.framework; sourceTree = "<group>"; };
+		A48513FE20FF16310078F5D2 /* MPQRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPQRScanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A48513FA20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,8 +71,10 @@
 		A413F88D20FDD66000BE9892 = {
 			isa = PBXGroup;
 			children = (
+				A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */,
 				A413F89820FDD66100BE9892 /* EMVCQRScanner */,
 				A413F89720FDD66100BE9892 /* Products */,
+				A48513F620FF15130078F5D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +105,7 @@
 			children = (
 				A413F8AB20FDD73C00BE9892 /* EVMCoHelper.swift */,
 				A413F8AD20FDDDBC00BE9892 /* TemplateClassData.swift */,
+				A48513F420FF108D0078F5D2 /* TableViewDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -91,8 +117,17 @@
 				A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */,
 				A413F8B420FDE1FE00BE9892 /* TableViewController.swift */,
 				A413F89B20FDD66100BE9892 /* ViewController.swift */,
+				A48513FE20FF16310078F5D2 /* MPQRScanViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A48513F620FF15130078F5D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A48513F720FF15130078F5D2 /* MasterpassQRScanSDK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +140,8 @@
 				A413F89220FDD66100BE9892 /* Sources */,
 				A413F89320FDD66100BE9892 /* Frameworks */,
 				A413F89420FDD66100BE9892 /* Resources */,
+				A48513FC20FF154B0078F5D2 /* Embed Frameworks */,
+				A48513FD20FF15620078F5D2 /* MasterpassQRScanner */,
 			);
 			buildRules = (
 			);
@@ -161,13 +198,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A48513FD20FF15620078F5D2 /* MasterpassQRScanner */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = MasterpassQRScanner;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/MasterpassQRScanSDK.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A413F89220FDD66100BE9892 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A413F89C20FDD66100BE9892 /* ViewController.swift in Sources */,
+				A48513FF20FF16310078F5D2 /* MPQRScanViewController.swift in Sources */,
 				A413F8B320FDDF1400BE9892 /* ScannerViewController.swift in Sources */,
+				A48513F520FF108D0078F5D2 /* TableViewDataSource.swift in Sources */,
 				A413F89A20FDD66100BE9892 /* AppDelegate.swift in Sources */,
 				A413F8AE20FDDDBC00BE9892 /* TemplateClassData.swift in Sources */,
 				A413F8B520FDE1FE00BE9892 /* TableViewController.swift in Sources */,
@@ -318,6 +374,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D46YYHA8A9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EMVCQRScanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -337,6 +397,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D46YYHA8A9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EMVCQRScanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

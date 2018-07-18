@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--EVMCo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -18,26 +19,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFK-8R-5H1">
-                                <rect key="frame" x="170" y="318.5" width="35" height="30"/>
-                                <state key="normal" title="Scan"/>
-                                <connections>
-                                    <segue destination="kRJ-Gd-Y1n" kind="show" identifier="scan" id="x2n-re-Cud"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Master Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oom-x1-ZVK">
+                                <rect key="frame" x="16" y="107" width="95" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manual" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugD-YE-XHl">
+                                <rect key="frame" x="303" y="107" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VFK-8R-5H1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mSP-Eb-oCg"/>
-                            <constraint firstItem="VFK-8R-5H1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oUU-bN-es2"/>
+                            <constraint firstItem="ugD-YE-XHl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9v7-Rz-0ig"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oom-x1-ZVK" secondAttribute="trailingMargin" id="RYK-XO-cyq"/>
+                            <constraint firstItem="oom-x1-ZVK" firstAttribute="baseline" secondItem="ugD-YE-XHl" secondAttribute="baseline" id="VfQ-ao-92Q"/>
+                            <constraint firstItem="oom-x1-ZVK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dXD-cd-NOZ"/>
+                            <constraint firstItem="ugD-YE-XHl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="h7I-ZH-TkO"/>
+                            <constraint firstItem="oom-x1-ZVK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="43" id="in5-0f-hQI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hdE-BA-2Nj"/>
+                    <navigationItem key="navigationItem" title="EVMCo" id="hdE-BA-2Nj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Sgq-Q5-lNu">
+                            <connections>
+                                <segue destination="8aB-9Z-5Zb" kind="show" id="NzJ-nc-sUK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="W8H-55-NbW">
+                            <connections>
+                                <segue destination="kRJ-Gd-Y1n" kind="show" id="vaQ-Nd-ThE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="34"/>
+            <point key="canvasLocation" x="312.80000000000001" y="33.733133433283363"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="4QK-U5-eVv">
@@ -72,7 +93,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsi-u6-UX5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="34"/>
+            <point key="canvasLocation" x="1114" y="-528"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="oh9-dO-dHx">
+            <objects>
+                <viewController id="8aB-9Z-5Zb" customClass="MPQRScanViewController" customModule="EMVCQRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="096-QN-U3o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VeV-mG-Rk8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kTA-1r-jEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="337"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="2Hj-84-6JA">
