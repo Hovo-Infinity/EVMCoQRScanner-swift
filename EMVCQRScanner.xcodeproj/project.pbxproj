@@ -17,6 +17,9 @@
 		A413F8B120FDDE6900BE9892 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */; };
 		A413F8B320FDDF1400BE9892 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */; };
 		A413F8B520FDE1FE00BE9892 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413F8B420FDE1FE00BE9892 /* TableViewController.swift */; };
+		A445C7412101FB4A00FE42F9 /* EURMerchantQrCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A445C7402101FB4900FE42F9 /* EURMerchantQrCodeReader.framework */; };
+		A445C7422101FB4A00FE42F9 /* EURMerchantQrCodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A445C7402101FB4900FE42F9 /* EURMerchantQrCodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A445C7442101FB7A00FE42F9 /* EURMerchantScanerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A445C7432101FB7A00FE42F9 /* EURMerchantScanerViewController.swift */; };
 		A46FF5E920FF229600C84FBE /* MasterpassQRCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */; };
 		A46FF5EA20FF229600C84FBE /* MasterpassQRCoreSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A484706D2100B7D0000D4BF5 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484706C2100B7D0000D4BF5 /* QRGenerator.swift */; };
@@ -36,6 +39,7 @@
 			files = (
 				A46FF5EA20FF229600C84FBE /* MasterpassQRCoreSDK.framework in Embed Frameworks */,
 				A48513FB20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Embed Frameworks */,
+				A445C7422101FB4A00FE42F9 /* EURMerchantQrCodeReader.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +59,8 @@
 		A413F8B020FDDE6900BE9892 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		A413F8B220FDDF1400BE9892 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		A413F8B420FDE1FE00BE9892 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A445C7402101FB4900FE42F9 /* EURMerchantQrCodeReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EURMerchantQrCodeReader.framework; sourceTree = "<group>"; };
+		A445C7432101FB7A00FE42F9 /* EURMerchantScanerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EURMerchantScanerViewController.swift; sourceTree = "<group>"; };
 		A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MasterpassQRCoreSDK.framework; sourceTree = "<group>"; };
 		A484706C2100B7D0000D4BF5 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		A484706E2100B9D7000D4BF5 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 			files = (
 				A46FF5E920FF229600C84FBE /* MasterpassQRCoreSDK.framework in Frameworks */,
 				A48513FA20FF154B0078F5D2 /* MasterpassQRScanSDK.framework in Frameworks */,
+				A445C7412101FB4A00FE42F9 /* EURMerchantQrCodeReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +134,7 @@
 				A413F89B20FDD66100BE9892 /* ViewController.swift */,
 				A48513FE20FF16310078F5D2 /* MPQRScanViewController.swift */,
 				A484706E2100B9D7000D4BF5 /* QRGeneratorViewController.swift */,
+				A445C7432101FB7A00FE42F9 /* EURMerchantScanerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 		A48513F620FF15130078F5D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A445C7402101FB4900FE42F9 /* EURMerchantQrCodeReader.framework */,
 				A46FF5E820FF229600C84FBE /* MasterpassQRCoreSDK.framework */,
 				A48513F920FF154B0078F5D2 /* MasterpassQRScanSDK.framework */,
 			);
@@ -254,6 +263,7 @@
 				A413F8AE20FDDDBC00BE9892 /* TemplateClassData.swift in Sources */,
 				A413F8B520FDE1FE00BE9892 /* TableViewController.swift in Sources */,
 				A413F8B120FDDE6900BE9892 /* DescriptionViewController.swift in Sources */,
+				A445C7442101FB7A00FE42F9 /* EURMerchantScanerViewController.swift in Sources */,
 				A413F8AC20FDD73C00BE9892 /* EVMCoHelper.swift in Sources */,
 				A484706F2100B9D7000D4BF5 /* QRGeneratorViewController.swift in Sources */,
 			);

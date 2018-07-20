@@ -1,0 +1,6 @@
+framework module EURMerchantQrCodeReader {
+  umbrella header "EURMerchantQrCodeReader.h"
+
+  export *
+  module * { export * }
+}

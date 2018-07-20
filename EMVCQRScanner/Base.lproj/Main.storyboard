@@ -43,6 +43,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9J-LL-FsD">
                                 <rect key="frame" x="89" y="277" width="197" height="30"/>
                                 <state key="normal" title="EURMerchantQrCodeReader"/>
+                                <connections>
+                                    <segue destination="Nkk-nI-sGo" kind="show" id="lpQ-ap-yto"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,6 +79,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="312.80000000000001" y="33.733133433283363"/>
+        </scene>
+        <!--Merchant Scaner View Controller-->
+        <scene sceneID="mm4-KM-6eb">
+            <objects>
+                <viewController id="Nkk-nI-sGo" customClass="EURMerchantScanerViewController" customModule="EMVCQRScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5bn-2L-x9a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gCE-6F-Pfr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OBB-db-CsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="802"/>
         </scene>
         <!--Scan-->
         <scene sceneID="4QK-U5-eVv">
@@ -194,7 +212,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="312.80000000000001" y="785.75712143928047"/>
+            <point key="canvasLocation" x="313" y="802"/>
         </scene>
         <!--Scan View Controller-->
         <scene sceneID="oh9-dO-dHx">

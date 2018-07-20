@@ -122,6 +122,19 @@ class MPQRScanViewController: UIViewController, QRCodeReaderDelegate {
                     tableDataSource[propName] = dictValue
                 }
             }
+            tableDataSource["teminalID"] = (pushData.additionalData?.terminalId ?? "Empty") as NSString
+            tableDataSource["amount"] = (pushData.transactionAmount ?? "Empty") as NSString
+            for tag in pushData.allTags {
+                let value = pushData.getTagInfoValue(for: tag)
+                if let maidData = try? pushData.getMAIData(forTagString: tag.tag) {
+                    let id = maidData.AID
+                    tableDataSource["merchant_id"] = (id ?? "Empty") as NSString
+                }
+                if let px = try? pushData.getUnreservedData(forTagString: tag.tag) {
+                    let id = px.AID
+                    tableDataSource["transfer id"] = (id ?? "Empty") as NSString
+                }
+            }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
                 let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
                 let tableViewDataSource = TableViewDataSource()
