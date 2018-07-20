@@ -12,6 +12,7 @@ import AVFoundation
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     @IBOutlet private var messageLabel: UILabel!
+    @IBOutlet weak var torchButton: UIBarButtonItem!
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
@@ -54,6 +55,55 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         captureSession?.startRunning()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        captureSession?.stopRunning()
+    }
+    
+    // MARK: - Action
+    
+    @IBAction func torch(_ sender: UIBarButtonItem) {
+        guard let flashLight = AVCaptureDevice.devices(for: .video).first(where: {$0.position == .back}) else { return }
+        if flashLight.isTorchAvailable  && flashLight.isTorchModeSupported(.on) {
+            do {
+                try flashLight.lockForConfiguration()
+                if flashLight.isTorchActive {
+                    flashLight.torchMode = .off
+                } else {
+                    flashLight.torchMode = .on
+                }
+                flashLight.unlockForConfiguration()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func flipCamera(_ sender: UIBarButtonItem) {
+        guard let session = captureSession,
+            let input = captureSession?.inputs.first else { return }
+        session.beginConfiguration()
+        guard let deviceInput = input as? AVCaptureDeviceInput else {
+            session.commitConfiguration()
+            return
+        }
+        session.removeInput(input)
+        let newPosition = deviceInput.device.position == .back ? AVCaptureDevice.Position.front : AVCaptureDevice.Position.back
+        torchButton.isEnabled = newPosition == .back
+        let newCamera = AVCaptureDevice.devices(for: .video).first(where: { $0.position == newPosition })
+        if let anNewCamera = newCamera {
+            do {
+                let newInput = try AVCaptureDeviceInput(device: anNewCamera)
+                if session.canAddInput(newInput) {
+                    session.addInput(newInput)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        session.commitConfiguration()
+    }
+    
     // MARK: - AVCaptureMetadataOutputObjectsDelegate
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -71,29 +121,33 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 if let stringValue = metadataObject?.stringValue {
                     messageLabel.text = metadataObject?.stringValue
                     EVMCoHelper.sharedInstance().setQRCode(stringValue)
-                    captureSession?.stopRunning()
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
-                        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
-                        let tableDataSource = TableViewDataSource()
-                        tableDataSource.numberOfSections = 1
-                        tableDataSource.numberOfItemsInSection = { _ in
-                            return EVMCoHelper.sharedInstance().objects.count
-                        }
-                        tableDataSource.nameForIndexPath = { indexPath in
-                            let index = indexPath.row
-                            let obj = EVMCoHelper.sharedInstance().objects[index]
-                            return (obj?.name)!
-                        }
-                        tableDataSource.descriptionForIndexPath = { indexPath in
-                            let index = indexPath.row
-                            let obj = EVMCoHelper.sharedInstance().objects[index]
-                            return obj?.debugDescription
-                        }
-                        vc?.tableDataSource = tableDataSource
-                        if let aVc = vc {
-                            self.show(aVc, sender: nil)
-                        }
-                    })
+                    if EVMCoHelper.sharedInstance().isValid {
+                        captureSession?.stopRunning()
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+                            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
+                            let tableDataSource = TableViewDataSource()
+                            tableDataSource.numberOfSections = 1
+                            tableDataSource.numberOfItemsInSection = { _ in
+                                return EVMCoHelper.sharedInstance().objects.count
+                            }
+                            tableDataSource.nameForIndexPath = { indexPath in
+                                let index = indexPath.row
+                                let obj = EVMCoHelper.sharedInstance().objects[index]
+                                return (obj?.name)!
+                            }
+                            tableDataSource.descriptionForIndexPath = { indexPath in
+                                let index = indexPath.row
+                                let obj = EVMCoHelper.sharedInstance().objects[index]
+                                return obj?.debugDescription
+                            }
+                            vc?.tableDataSource = tableDataSource
+                            if let aVc = vc {
+                                self.show(aVc, sender: nil)
+                            }
+                        })
+                    } else {
+                        showAlert(title: "Invalid EVM format", message: stringValue)
+                    }
                 }
             }
         }

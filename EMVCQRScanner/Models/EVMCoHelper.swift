@@ -175,13 +175,19 @@ class EVMCoHelper: NSObject {
             _code = newValue
             var arr = [DataObject?]()
             let strings = EVMCoHelper.splitedStrings(fromCode: code)
+            var count = 0
             for string: String in strings {
+                count += string.count
                 let obj: DataObject? = EVMCoHelper.dataObject(from: string)
                 arr.append(obj)
             }
-            objects = arr
+            if count == newValue.count {
+                isValid = true
+                objects = arr
+            }
         }
     }
+    private(set) var isValid = false
     class func sharedInstance() -> EVMCoHelper {
         if (shared == nil) {
             shared = EVMCoHelper()
@@ -239,16 +245,22 @@ class EVMCoHelper: NSObject {
         let len: Int = 2
         var splitedStrings = [String]()
         while index < code.count {
-            let count = Int((code as NSString).substring(with: NSRange(location: index + 2, length: len))) ?? 0
-            let part: String = (code as NSString).substring(with: NSRange(location: index, length: count + 4))
-            index += count + 4
-            splitedStrings.append(part)
+            if index + len + 2 <= code.count {
+                let count = Int((code as NSString).substring(with: NSRange(location: index + 2, length: len))) ?? 0
+                if index + count + 4 <= code.count {
+                    let part: String = (code as NSString).substring(with: NSRange(location: index, length: count + 4))
+                    index += count + 4
+                    splitedStrings.append(part)
+                }
+            } else {
+                break
+            }
         }
         return splitedStrings
     }
     
-    class func dataObject(from string: String) -> DataObject {
-        let Id = Int((string as NSString).substring(to: 2))!
+    class func dataObject(from string: String) -> DataObject? {
+        guard let Id = Int((string as NSString).substring(to: 2)) else { return nil }
         let obj = DataObject()
         obj.id = Id
         obj.len = Int((string as NSString).substring(with: NSRange(location: 2, length: 2))) ?? 0
